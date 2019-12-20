@@ -6,7 +6,8 @@ RUN apk --no-cache add \
       curl \
       git \
       docker \
-      openssh-client
+      openssh-client \
+      make
 
 RUN DOCTL_VER=$(curl -w "%{url_effective}" -I -L -s -S https://github.com/digitalocean/doctl/releases/latest -o /dev/null | sed -e 's|.*/v||') \
     && curl -s -L https://github.com/digitalocean/doctl/releases/download/v$DOCTL_VER/doctl-$DOCTL_VER-linux-amd64.tar.gz  | tar xz -C /usr/local/bin \
